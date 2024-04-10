@@ -1,5 +1,5 @@
 import os
-from flask import Flask, flash, render_template, redirect, request
+from flask import Flask, flash, render_template, redirect, request, jsonify
 from tasks import add, elvaco_data_handler
 
 app = Flask(__name__)
@@ -23,8 +23,10 @@ def add_inputs():
 @app.route('/elvacorender/<site>', methods=['POST'])
 def parse_elvaco_data(site):
 
-    content = request.get_data().decode('cp855').split('\r\n')
+    headers = request.headers.get()
 
-    task = elvaco_data_handler.delay(site, content)
+    #content = request.get_data().decode('cp855').split('\r\n')
 
-    return 202
+    #task = elvaco_data_handler.delay(site, content)
+
+    return headers,202
