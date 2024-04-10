@@ -3,7 +3,7 @@ from celery import Celery
 from celery.utils.log import get_task_logger
 import datetime
 from meter_list import all_meters
-from influxdb_client_3 import InfluxDBClient3
+# from influxdb_client_3 import InfluxDBClient3
 
 app = Celery('tasks', broker=os.getenv("CELERY_BROKER_URL"))
 logger = get_task_logger(__name__)
@@ -25,9 +25,9 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
-    token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
-    org = "j.wright@pinnaclepower.co.uk"
-    host = "https://westeurope-1.azure.cloud2.influxdata.com"
+    # token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
+    # org = "j.wright@pinnaclepower.co.uk"
+    # host = "https://westeurope-1.azure.cloud2.influxdata.com"
 
     ### Define Influx measurement and fields
 
@@ -108,15 +108,15 @@ def elvaco_data_handler(site, content):
             }
             )
 
-    points = influx_json_body
+    # points = influx_json_body
 
-    client = InfluxDBClient3(token=token,
-                    host=host,
-                    database="Elvaco_Data",
-                    org=org)
+    # client = InfluxDBClient3(token=token,
+    #                 host=host,
+    #                 database="Elvaco_Data",
+    #                 org=org)
     
-    for point in points:
+    # for point in points:
         
-        write_influx = client.write(record=point, write_precision="s")
+    #     write_influx = client.write(record=point, write_precision="s")
 
     return influx_json_body
