@@ -23,7 +23,7 @@ def add_inputs():
 @app.route('/elvacorender/<site>', methods=['POST'])
 def parse_elvaco_data(site):
 
-    elv_sn = request.headers.get('User-Agent').split(' ')[2].split('/')[-1]
+    elv_sn = request.headers
 
     #content = request.get_data().decode('cp855').split('\r\n')
 
