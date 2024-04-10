@@ -90,8 +90,16 @@ def elvaco_data_handler(site, content):
                 continue
 
             else: 
+                try:
 
-                influx_fields[x] = float(influx_fields[x])
+                    influx_fields[x] = float(influx_fields[x])
+
+                except:
+
+                    influx_fields[x] = influx_fields[x]
+
+
+         
 
         influx_json_body.append(
             {
