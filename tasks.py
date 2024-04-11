@@ -28,9 +28,9 @@ def elvaco_data_handler(site, content):
 
     content = base64.b64decode(content)
 
-    decoded_content = content.decode('cp855').split('\r\n')
+    #decoded_content = content.decode('cp855').split('\r\n')
 
-    return decoded_content
+    return content
 
     # token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
     # org = "j.wright@pinnaclepower.co.uk"

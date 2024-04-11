@@ -25,9 +25,13 @@ def add_inputs():
 @app.route('/elvacorender/<site>', methods=['POST'])
 def parse_elvaco_data(site):
 
+    data_bytes = request.get_data()
+
+    bytes_encoded = base64.b64encode(data_bytes)
+
     #elv_sn = request.headers
 
-    content = base64.b64encode(request.get_data())
+    content = bytes_encoded
 
     #byte_data = request.get_data()
 
