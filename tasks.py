@@ -26,13 +26,13 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
-    count = 0 
+    # count = 0 
 
-    for line in content : 
+    # for line in content : 
 
-        count = count + 1
+    #     count = count + 1
 
-    return count, content
+    # return count, content
 
     # token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
     # org = "j.wright@pinnaclepower.co.uk"
