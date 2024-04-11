@@ -25,9 +25,11 @@ def add_inputs():
 @app.route('/elvacorender/<site>', methods=['POST'])
 def parse_elvaco_data(site):
 
-    data_bytes = request.get_data().decode('cp855').split('\r\n')
+    #data_bytes = request.get_data().decode('cp855').split('\r\n')
 
-    content = list(data_bytes)
+    #content = request
+    
+    content = type(request.get_data())
 
     task = elvaco_data_handler.delay(site, content)
     

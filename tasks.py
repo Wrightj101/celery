@@ -3,6 +3,7 @@ from celery import Celery
 from celery.utils.log import get_task_logger
 import datetime
 from meter_list import all_meters
+from flask import request
 import base64
 # from influxdb_client_3 import InfluxDBClient3
 
@@ -25,6 +26,10 @@ def get_label_dict(dictionary, hm_sn):
 
 @app.task
 def elvaco_data_handler(site, content):
+
+    return content
+
+    request(content.decode('cp855').split('\r\n'))
 
     # count = 0 
 
