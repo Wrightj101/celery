@@ -27,7 +27,7 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
-    return content['headers']
+    return content['data']
 
     content = content['data'].split('\r\n')
 
