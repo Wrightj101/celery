@@ -29,9 +29,11 @@ def parse_elvaco_data(site):
 
     bytes_encoded = base64.b64encode(data_bytes)
 
+    final_bytes_string = bytes_encoded.decode('ascii')
+
     #elv_sn = request.headers
 
-    content = bytes_encoded
+    content = final_bytes_string
 
     #byte_data = request.get_data()
 
