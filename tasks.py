@@ -3,6 +3,7 @@ from celery import Celery
 from celery.utils.log import get_task_logger
 import datetime
 from meter_list import all_meters
+import base64
 # from influxdb_client_3 import InfluxDBClient3
 
 app = Celery('tasks', broker=os.getenv("CELERY_BROKER_URL"))
@@ -24,6 +25,10 @@ def get_label_dict(dictionary, hm_sn):
 
 @app.task
 def elvaco_data_handler(site, content):
+
+    content = base64.b64decode(content)
+
+    return content
 
     # token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
     # org = "j.wright@pinnaclepower.co.uk"
