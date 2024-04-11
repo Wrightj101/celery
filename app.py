@@ -1,6 +1,7 @@
 import os
 from flask import Flask, flash, render_template, redirect, request, jsonify
 from tasks import add, elvaco_data_handler
+import base64
 
 app = Flask(__name__)
 app.secret_key = os.getenv('FLASK_SECRET_KEY', "super-secret")
@@ -26,11 +27,12 @@ def parse_elvaco_data(site):
     #elv_sn = request.headers
 
     #content = request
-    content = request.get_data().decode('cp855').split('\r\n')
+    content = base64.b64encode(request.get_data())
+    #content = request.get_data().decode('cp855').split('\r\n')
     #content = request.get_data()
 
     task = elvaco_data_handler.delay(site, content)
     
-    return jsonify({"task_id": task.id}), 200
+    return 200
 
     #return f"Recieved data from {site} on elvaco {elv_sn}",200
