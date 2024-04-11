@@ -29,7 +29,7 @@ def parse_elvaco_data(site):
 
     byte_data = request.get_data()
 
-    json_data = json.loads(str(byte_data, 'utf-8'))
+    json_data = json.loads(str(byte_data, 'cp855'))
 
     content = json_data
 
