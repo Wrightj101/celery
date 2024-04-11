@@ -27,27 +27,7 @@ def parse_elvaco_data(site):
 
     data_bytes = request.get_data().decode('cp855')
 
-    #bytes_encoded = base64.b64encode(data_bytes)
-
-    #final_bytes_string = bytes_encoded.decode('ascii')
-
-    #elv_sn = request.headers
-
     content = str(data_bytes)
-
-    #byte_data = request.get_data()
-
-    #json_data = json.loads(str(byte_data, 'cp855'))
-
-    #content = json_data
-
-    #content = request
-    #encoded64 = base64.b64encode(request.get_data())
-
-    #content = encoded64.decode('ascii')
-
-    #content = request.get_data().decode('cp855').split('\r\n')
-    #content = request.get_data()
 
     task = elvaco_data_handler.delay(site, content)
     
