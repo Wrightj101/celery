@@ -26,7 +26,7 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
-    content = base64.b64decode(content)
+    #content = base64.b64decode(content)
 
     return content
 

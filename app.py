@@ -27,10 +27,16 @@ def parse_elvaco_data(site):
 
     #elv_sn = request.headers
 
-    #content = request
-    encoded64 = base64.b64encode(request.get_data())
+    byte_data = request.get_data()
 
-    content = encoded64.decode('ascii')
+    json_data = json.loads(str(byte_data, 'utf-8'))
+
+    content = json_data
+
+    #content = request
+    #encoded64 = base64.b64encode(request.get_data())
+
+    #content = encoded64.decode('ascii')
 
     #content = request.get_data().decode('cp855').split('\r\n')
     #content = request.get_data()
