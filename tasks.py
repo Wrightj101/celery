@@ -25,9 +25,18 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
+    try:
+
+        content = content.decode('cp855').split('\r\n')
+
+    except: 
+
+        return "Unable to process Elvaco Report"
+
     # token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
     # org = "j.wright@pinnaclepower.co.uk"
     # host = "https://westeurope-1.azure.cloud2.influxdata.com"
+    # bucket = "Elvaco_Data"
 
     ### Define Influx measurement and fields
 
@@ -77,6 +86,8 @@ def elvaco_data_handler(site, content):
 
         ## new label finder:
 
+
+
         label = get_label_dict(all_meters[site], meter_sn)
 
         influx_tags['meter_label'] = label
@@ -107,6 +118,12 @@ def elvaco_data_handler(site, content):
                 "fields": influx_fields
             }
             )
+        
+    # client = influxdb_client.InfluxDBClient(
+    # url=host,
+    # token=token,
+    # org=org
+    # )
 
     # points = influx_json_body
 
@@ -118,5 +135,9 @@ def elvaco_data_handler(site, content):
     # for point in points:
         
     #     write_influx = client.write(record=point, write_precision="s")
+
+    #write_api = client.write_api(write_options=SYNCHRONOUS)
+
+    #write_api.write(bucket, org, points)
 
     return influx_json_body
