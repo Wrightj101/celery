@@ -27,7 +27,7 @@ def elvaco_data_handler(site, content):
 
     try:
 
-        content = content.decode('cp855').split('\r\n')
+        content = content.get_data().decode('cp855').split('\r\n')
 
     except: 
 

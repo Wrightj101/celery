@@ -25,7 +25,7 @@ def parse_elvaco_data(site):
 
     #elv_sn = request.headers
 
-    content = request.get_data()
+    content = request
     #content = request.get_data().decode('cp855').split('\r\n')
     #content = request.get_data()
 
