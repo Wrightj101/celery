@@ -27,6 +27,9 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
+    content = content['data'].split('\r\n')
+
+
     # count = 0 
 
     # for line in content : 
@@ -50,7 +53,7 @@ def elvaco_data_handler(site, content):
 
     ### Extract content line by line and define headers from values
 
-    for line in content['data']:
+    for line in content:
 
         if '#serial-number' in line:
 
