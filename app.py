@@ -33,7 +33,7 @@ def parse_elvaco_data(site):
 
     #elv_sn = request.headers
 
-    content = final_bytes_string
+    content = str(data_bytes)
 
     #byte_data = request.get_data()
 
