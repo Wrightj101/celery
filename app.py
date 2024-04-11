@@ -23,10 +23,13 @@ def add_inputs():
 @app.route('/elvacorender/<site>', methods=['POST'])
 def parse_elvaco_data(site):
 
-    elv_sn = request.headers
+    #elv_sn = request.headers
 
     #content = request.get_data().decode('cp855').split('\r\n')
+    content = request.get_data()
 
     #task = elvaco_data_handler.delay(site, content)
+    
+    return content, 200
 
-    return f"Recieved data from {site} on elvaco {elv_sn}",200
+    #return f"Recieved data from {site} on elvaco {elv_sn}",200
