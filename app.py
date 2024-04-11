@@ -29,11 +29,11 @@ def parse_elvaco_data(site):
 
     content['headers'] = dict(request.headers)
 
-    content['data'] = request.data
+    #content['data'] = request.data
 
-    data_bytes = request.get_data().decode('cp855')
+    #data_bytes = request.get_data().decode('cp855')
     
-    content['data'] = data_bytes
+    #content['data'] = data_bytes
 
     task = elvaco_data_handler.delay(site, content)
     
