@@ -27,7 +27,7 @@ def parse_elvaco_data(site):
 
     content = {}
 
-    content['headers'] = request.headers
+    content['headers'] = dict(request.headers)
 
     data_bytes = request.get_data().decode('cp855')
     
