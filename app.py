@@ -1,6 +1,7 @@
 import os
 from flask import Flask, flash, render_template, redirect, request, jsonify
 from tasks import add, elvaco_data_handler
+import json
 import base64
 
 app = Flask(__name__)
@@ -36,6 +37,6 @@ def parse_elvaco_data(site):
 
     task = elvaco_data_handler.delay(site, content)
     
-    return 200
+    return json.dumps({'success':True}), 200
 
     #return f"Recieved data from {site} on elvaco {elv_sn}",200
