@@ -25,14 +25,6 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
-    try:
-
-        content = content.get_data().decode('cp855').split('\r\n')
-
-    except: 
-
-        return "Unable to process Elvaco Report"
-
     # token = "jXnUO24O5Dk5H6L7uzWEDXTaBbzOdg5zq06mD1BAaCaEDFEoqbbPTQmt0L6Y8as4Y-9t1af4v7t-VWeElZyzBw=="
     # org = "j.wright@pinnaclepower.co.uk"
     # host = "https://westeurope-1.azure.cloud2.influxdata.com"
