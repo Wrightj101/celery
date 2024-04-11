@@ -26,8 +26,6 @@ def get_label_dict(dictionary, hm_sn):
 @app.task
 def elvaco_data_handler(site, content):
 
-    content = content.split('\\r\\n')
-
     count = 0 
 
     for line in content : 
